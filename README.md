@@ -5,7 +5,11 @@ Jalali date helper for react native
 ## Installation
 
 ```sh
-npm install react-native-jalali-date
+npm install react-native-jalali-date @react-native-picker/picker
+```
+
+```sh
+yarn add react-native-jalali-date @react-native-picker/picker
 ```
 
 ## Usage
