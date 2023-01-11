@@ -1,6 +1,11 @@
 # react-native-jalali-date
 
-Jalali date helper for react native
+Jalali date picker for React Native both platform (Android and iOS)
+
+<p align="center">
+  <img src="https://github.com/mohamadnavabi/react-native-jalali-datepicker/blob/master/example/Android.png?raw=true" width="300" max-width="300" title="Android example">
+  <img src="https://github.com/mohamadnavabi/react-native-jalali-datepicker/blob/master/example/iOS.png?raw=true" width="250" max-width="300" alt="iOS example">
+</p>
 
 ## Installation
 
