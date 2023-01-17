@@ -6,6 +6,7 @@ import type {
 } from './JalaliDatePicker.presets';
 import moment from 'moment-jalaali';
 
+const START_DATE = { year: 1320, month: 1, day: 1 };
 const DEFAULT_MONTH_DAYS = 31;
 
 const todayMoment = moment().format('jYYYY/jM/jD').split('/');
@@ -48,14 +49,14 @@ export const persianDigits = (text: string) => {
   return text;
 };
 
-export const getDate = (date: DateProps, defaultToday = false): DateObject => {
+export const getDate = (date: DateProps, defaultDay = today): DateObject => {
   if (typeof date === 'object') return date;
   else if (date === 'TODAY') return today;
-  else defaultToday ? today : date;
+  else return date ?? defaultDay;
 };
 
 export const getYears = (props: JalaliDatePickerProps): PickerDataType[] => {
-  const minDate = getDate(props.minDate);
+  const minDate = getDate(props.minDate, START_DATE);
   const maxDate = getDate(props.maxDate);
   const start = minDate ?? { ...today, year: 1369 };
   const end = maxDate ?? { ...today, year: 1369 };
@@ -73,7 +74,7 @@ export const getMonths = (
   props: JalaliDatePickerProps,
   year: number | string
 ): PickerDataType[] => {
-  const minDate = getDate(props.minDate);
+  const minDate = getDate(props.minDate, START_DATE);
   const maxDate = getDate(props.maxDate);
   let dMonths = defaultMonths;
 
@@ -90,7 +91,7 @@ export const getDays = (
   year: number | string,
   month: number | string
 ): PickerDataType[] => {
-  const minDate = getDate(props.minDate);
+  const minDate = getDate(props.minDate, START_DATE);
   const maxDate = getDate(props.maxDate);
   let days = Array.from(
     {

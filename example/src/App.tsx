@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
-import { Pressable, SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import {
+  Platform,
+  Pressable,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import Modal from 'react-native-modal';
 import Picker from 'react-native-jalali-date';
 
@@ -44,7 +51,6 @@ export default function App() {
             initDate={selectedDate}
             maxDate="TODAY"
             onChange={setSelectedDate}
-            style={styles.picker}
           />
 
           <Pressable style={styles.button} onPress={onApply}>
@@ -76,6 +82,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginHorizontal: 10,
+    marginBottom: 10,
+    ...Platform.select({
+      ios: {
+        marginTop: 50,
+      },
+    }),
   },
   buttonText: {
     paddingVertical: 10,
@@ -89,8 +101,7 @@ const styles = StyleSheet.create({
   },
   modalContent: {
     backgroundColor: '#ffffff',
-  },
-  picker: {
-    marginBottom: 50,
+    borderTopStartRadius: 20,
+    borderTopEndRadius: 20,
   },
 });

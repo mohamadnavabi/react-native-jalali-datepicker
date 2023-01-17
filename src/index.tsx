@@ -13,7 +13,7 @@ const JalaliDatePicker = (props: JalaliDatePickerProps) => {
   const [months, setMonths] = useState<PickerDataType[]>([]);
   const [days, setDays] = useState<PickerDataType[]>([]);
 
-  const init = getDate(props.initDate, true);
+  const init = getDate(props.initDate);
   const [year, setYear] = useState(init.year);
   const [month, setMonth] = useState(init.month);
   const [day, setDay] = useState(init.day);

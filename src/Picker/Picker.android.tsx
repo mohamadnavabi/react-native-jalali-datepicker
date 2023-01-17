@@ -1,5 +1,7 @@
 import React, { ReactChild, useEffect, useRef } from 'react';
-import { requireNativeComponent, ViewStyle } from 'react-native';
+import { Dimensions, requireNativeComponent, ViewStyle } from 'react-native';
+
+const { width } = Dimensions.get('window');
 
 const NativePicker = requireNativeComponent('JalaliDate');
 
@@ -49,6 +51,7 @@ const Picker = React.memo((props: Props) => {
   return (
     <NativePicker
       {...props}
+      style={[props.style, { width: width / 3, height: 150 }]} // TODO: add custom style
       onValueChange={onValueChange}
       data={props.data || []}
       isShowSelectBackground={false}

@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
-    "ios": "ENVFILE=.env.development arch -x86_64 react-native run-ios --simulator='iPhone 14 Pro'",
+    "ios": "arch -x86_64 react-native run-ios --simulator='iPhone 14 Pro'",
     "start": "react-native start",
     "pods": "pod-install --quiet"
   },
